@@ -80,8 +80,6 @@ plugins=(
   pyenv
   nvm
   docker
-  fzf
-  
   )
 
 POWERLEVEL9K_MODE="nerdfont-complete"
@@ -89,10 +87,16 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs dir_writable)
 #POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status pyenv)
 POWERLEVEL9K_STATUS_VERBOSE=true
-#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-#POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+
+# POWERLEVEL9K_DIR_PATH_ABSOLUTE=true
+# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_last"
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 POWERLEVEL9K_PYENV_FOREGROUND="black"
 POWERLEVEL9K_PYENV_BACKGROUND="cyan"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" ↳ "
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 
@@ -125,12 +129,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export TERM=xterm-color
-export CLICOLOR=1
-export CLICOLOR_FORCE=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
+# export CLICOLOR=1
+# export CLICOLOR_FORCE=1
+# export LSCOLORS=GxFxCxDxBxegedabagaced
 export GREP_OPTIONS='--color=auto'
 #alias ls='gls --color=always'
-
 
 #prompt_context() {}
 
@@ -173,20 +176,25 @@ alias pir="pip install -r requirements.txt"
 alias piup="pip install --upgrade pip"
 alias aac="source activate"
 alias dac="source deactivate"
-alias vi="nvim"
+
 
 alias c="code"
 alias ll="exa --long --tree --level=2 --icons"
 alias l='exa --icons'
 alias la='exa -abghl --icons --git'
 alias cd.='cd ~'
+alias cbc='pbcopy'
+
 #alias ls='colorls'
 #alias ll='colorls -alh --gs'
 #rbenv
 eval "$(rbenv init -)"
 
+
+
 #utilities
 alias pat="pygmentize -g"
+alias vi="nvim"
 alias gla="glances"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
